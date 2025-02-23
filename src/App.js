@@ -30,12 +30,26 @@ function App() {
     setTodos((todos) => [...todos, newTodo])
   }
 
+  // const deleteTodo = (deleteTodoRowNumber) => {
+  //   let filtered = todos.filter(
+  //     (item) => item.rowNumber !== deleteTodoRowNumber
+  //   )
+  //   setTodos(filtered)
+  // }
+
+  const deleteTodo = (deleteTodoRowNumber) => {
+    let filtered = todos.filter(function (value) {
+      return value.rowNumber !== deleteTodoRowNumber
+    })
+    setTodos(filtered)
+  }
+
   return (
     <div className="mt-5 container">
       <div className="card">
         <div className="card-header">Your Todo's</div>
         <div className="card-body">
-          <TodoTable todos={todos}></TodoTable>
+          <TodoTable todos={todos} deleteTodo={deleteTodo}></TodoTable>
           <button onClick={addTodo} className="btn btn-primary">
             Add new todos
           </button>
