@@ -1,6 +1,6 @@
 import TodoRowItem from "./TodoRowItem"
 
-const TodoTable = () => {
+const TodoTable = (props) => {
   return (
     <>
       <table className="table table-hover">
@@ -12,9 +12,23 @@ const TodoTable = () => {
           </tr>
         </thead>
         <tbody>
-          <TodoRowItem></TodoRowItem>
+          <TodoRowItem
+            rowNumber={props.todos[0].rowNumber}
+            rowDescription={props.todos[0].rowDescription}
+            rowAssigned={props.todos[0].rowAssigned}
+          ></TodoRowItem>
 
-          {/* <TodoRowItem></TodoRowItem> */}
+          <TodoRowItem
+            rowNumber={props.todos[1].rowNumber}
+            rowDescription={props.todos[1].rowDescription}
+            rowAssigned={props.todos[1].rowAssigned}
+          ></TodoRowItem>
+
+          <TodoRowItem
+            rowNumber={props.todos[2].rowNumber}
+            rowDescription={props.todos[2].rowDescription}
+            rowAssigned={props.todos[2].rowAssigned}
+          ></TodoRowItem>
         </tbody>
       </table>
     </>
